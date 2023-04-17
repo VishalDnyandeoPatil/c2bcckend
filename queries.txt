@@ -1,0 +1,9 @@
+Q Write an aggregation pipeline that calculates the total bank balance for each user(sum of all deposits minus sum of all withdrawals) and sort in the descending order of the total bank balance
+
+db.bankTransation.aggregate([{lookup:{
+    from: "users",
+    localField:"user_id",
+    foreignField:"_id",
+    as:"user"
+}}
+{$}])
